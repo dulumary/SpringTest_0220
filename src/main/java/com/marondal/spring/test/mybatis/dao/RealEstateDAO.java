@@ -27,5 +27,14 @@ public interface RealEstateDAO {
 			, @Param("type") String type
 			, @Param("price") int price
 			, @Param("rentPrice") int rentPrice);
+	
+	// id와 타입 가격을 전달 받고, update 쿼리를 수행한다. 
+	public int updateRealEstate(
+			@Param("id") int id
+			, @Param("type") String type
+			, @Param("price") int price);
+	
+	
+	public int deleteRealEstate(@Param("id") int id);
 
 }

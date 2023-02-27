@@ -80,6 +80,37 @@ public class RealEstateController {
 		return "삽입결과 : " + count;
 	}
 	
+	@RequestMapping("/test03")
+	@ResponseBody
+	public String updateRealEstate() {
+		// id가 22인 매물의 타입을 전세로 바꾸고 가격을 70000 으로 변경한다. 
+		int count = realEstateBO.updateRealEstate(22, "전세", 70000);
+		
+		return "수정 결과 : " + count;
+		
+	}
+	
+	@RequestMapping("/test04")
+	@ResponseBody
+	public String deleteRealEstate(@RequestParam("id") int id) {
+		
+		int count = realEstateBO.deleteRealEstate(id);
+		
+		return "삭제 결과 : " + count;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }

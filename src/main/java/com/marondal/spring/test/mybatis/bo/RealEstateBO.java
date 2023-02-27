@@ -44,5 +44,21 @@ public class RealEstateBO {
 		return realEstateDAO.insertRealEstate(realtorId, address, area, type, price, rentPrice);
 	}
 	
+	// 변경시킬 행의 id를 전달 받고, 전달받은 타입과 가격으로 수정한다. 
+	public int updateRealEstate(int id, String type, int price) {
+		
+		 return realEstateDAO.updateRealEstate(id, type, price);
+		
+	}
+	
+	public int deleteRealEstate(int id) {
+		
+		return realEstateDAO.deleteRealEstate(id);
+	}
+	
+	
+	
+	
+	
 
 }
