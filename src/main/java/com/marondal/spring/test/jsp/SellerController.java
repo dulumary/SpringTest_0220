@@ -38,9 +38,17 @@ public class SellerController {
 	}
 	
 	@GetMapping("/info")
-	public String sellerInfo(Model model) {
-		// 필요한 데이터 조회
-		Seller seller = sellerBO.getLastSeller();
+	public String sellerInfo(@RequestParam(value="id", required=false) Integer id, Model model) {
+		
+		
+		Seller seller = null;
+		// id 파라미터가 있으면 id로 조회한 결과 보여주기
+		if(id != null) {
+			seller = sellerBO.getSeller(id);
+
+		} else {// id 파라미터가 없으면 최근 판매자 결과 보여주기
+			seller = sellerBO.getLastSeller();
+		}
 		
 		model.addAttribute("seller", seller);
 		
