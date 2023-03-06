@@ -56,10 +56,12 @@
 			
 			<tbody>
 				<c:forEach var="cardBill" items="${cardBillList }" >
+				<%-- String -> Date -> String  2025-09-20 --%>
+					<fmt:parseDate value="${cardBill.date }" var="date" pattern="yyyy-MM-dd" />
 				<tr>
 					<td>${cardBill.store }</td>
-					<td>₩${cardBill.pay }</td>
-					<td>${cardBill.date }</td>
+					<td><fmt:formatNumber value="${cardBill.pay }" type="currency" /></td>
+					<td><fmt:formatDate value="${date }" pattern="yyyy년 M월 d일" /></td>
 					<td>${cardBill.installment }</td>
 					
 				</tr>
