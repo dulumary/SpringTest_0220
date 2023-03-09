@@ -39,7 +39,6 @@ public class WeatherController {
 	}
 	
 	@GetMapping("/add")
-	@ResponseBody
 	public String addWeather(
 			@DateTimeFormat(pattern="yyyy년 MM월 dd일")
 			@RequestParam("date") Date date
@@ -52,7 +51,7 @@ public class WeatherController {
 		int count = weatherBO.addWeather(date, weather, temperatures, precipitation, microDust, windSpeed);
 		
 		
-		return "삽입결과 : " + count;
+		return "redirect:/jstl/weather/list";
 		
 	}
 	
